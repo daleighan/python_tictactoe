@@ -9,7 +9,8 @@ class Game:
         while self.won == False:
             print(self.player1, "moves")
             row = int(input("row?"))
-            column = int(input("column"))
+            column = int(input("column?"))
+            self.move_count = self.move_count + 1
             self.toggle_place("X", row, column)
             self.check_wins("X", self.player1)
             if self.won == True:
@@ -18,7 +19,8 @@ class Game:
             self.print_board()
             print(self.player2, "moves")
             row = int(input("row?"))
-            column = int(input("column"))
+            column = int(input("column?"))
+            self.move_count = self.move_count + 1
             self.toggle_place("O", row, column)
             self.check_wins("O", self.player2)
             self.print_board()
@@ -64,5 +66,9 @@ class Game:
             self.won = True
         if self.won == True:
             print(player, "wins")
+        if self.move_count == 9 and self.won == False:
+            print("Unfortunately, there is no winner!")
+            quit()
 
-new_game = Game()
+if __name__ == "__main__":
+    new_game  = Game() 
