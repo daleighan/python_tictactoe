@@ -29,12 +29,20 @@ class Game:
         print(self.board[2])
 
     def toggle_place(self, piece,  i, j):
-        if i not in range(0, 3):
-            print("please enter values between 0 and 2 for the row")
-            i = int(input("row?"))
-        if j not in range(0, 3):
-            print("please enter values between 0 and 2 for the row")
-            j = int(input("column?"))
+        valid_move = False
+        while valid_move == False:
+            if i not in range(0, 3):
+                print("please enter values between 0 and 2 for the row")
+                i = int(input("row?"))
+            elif j not in range(0, 3):
+                print("please enter values between 0 and 2 for the row")
+                j = int(input("column?"))
+            elif self.board[i][j] != ' ':
+                print("please enter a move that has not already been made")
+                i = int(input("row?"))
+                j = int(input("column?"))
+            else:
+                valid_move = True
         self.board[i][j] = piece
 
     def check_wins(self, piece, player):
