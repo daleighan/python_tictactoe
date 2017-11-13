@@ -1,6 +1,5 @@
 class Game:
     def __init__(self):
-        
         print("Welcome to two player command line Tic Tac Toe.") 
         print("Moves are measured in rows and columns between 0 and 2.") 
         print("Made by Alex Leigh in 2017.")
@@ -10,6 +9,9 @@ class Game:
         self.move_count = 0
         self.board = [[' ', ' ', ' '], [' ', ' ', ' '], [' ', ' ', ' ']]
         self.print_board()
+        self.run_game()
+    
+    def run_game(self):
         while self.won == False:
             print(self.player1, "moves.")
             row = int(input("What row?"))
