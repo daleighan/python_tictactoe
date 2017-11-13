@@ -13,6 +13,7 @@ class Game:
             self.toggle_place("X", row, column)
             self.check_wins("X", self.player1)
             if self.won == True:
+                self.print_board()
                 break
             self.print_board()
             print(self.player2, "moves")
@@ -28,6 +29,12 @@ class Game:
         print(self.board[2])
 
     def toggle_place(self, piece,  i, j):
+        if i not in range(0, 3):
+            print("please enter values between 0 and 2 for the row")
+            i = int(input("row?"))
+        if j not in range(0, 3):
+            print("please enter values between 0 and 2 for the row")
+            j = int(input("column?"))
         self.board[i][j] = piece
 
     def check_wins(self, piece, player):
